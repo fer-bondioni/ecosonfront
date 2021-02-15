@@ -1,0 +1,89 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-7">
+      <form [formGroup]="form">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="titulo"
+            formControlName="titulo"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="texto"
+            formControlName="texto"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="categoria"
+            formControlName="categoria"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="file"
+            class="form-control"
+            (change)="onFileSelected($event)"
+          />
+          <div *ngIf="image">
+            <img [src]="previewUrl" style="width: 12rem; height: auto" />
+            <button type="button" (click)="eliminar()">X</button>
+          </div>
+        </div>
+        <button type="button" (click)="upload()" [disabled]="form.invalid">
+          Nueva noticia
+        </button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <form [formGroup]="form">
+    <mat-form-field id="titulo" appearance="standard">
+      <mat-label>Título</mat-label>
+      <input matInput type="text" formControlName="titulo" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label style="font-size: larger">Texto</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="6"
+        cdkAutosizeMaxRows="8"
+        formControlName="texto"
+      ></textarea>
+    </mat-form-field>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>categoria</mat-label>
+      <input matInput type="text" formControlName="categoria" />
+    </mat-form-field> -->
+    <div>
+      <input id="file" type="file" (change)="onFileSelected($event)" />
+      <div *ngIf="image">
+        <img
+          [src]="previewUrl"
+          style="width: 12rem; height: auto; margin-top: 20px"
+        />
+        <button mat-button (click)="eliminar()">X</button>
+      </div>
+    </div>
+
+    <button
+      id="nueva"
+      mat-button
+      style="font-size: larger"
+      (click)="upload()"
+      [disabled]="form.invalid"
+    >
+      Nueva noticia
+    </button>
+  </form>
+</div>

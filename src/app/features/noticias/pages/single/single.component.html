@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-3 col-lg-3 col-12 mt-5">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <p>{{ noticia.fecha | date: "yyyy-MM-dd" }}</p>
+          <h5 class="card-title">
+            {{ noticia.titulo }}
+          </h5>
+          <h3>{{ noticia.categoria }}</h3>
+          <h6 class="card-subtitle mb-2 text-muted">{{ noticia.texto }}</h6>
+          <img
+            src="https://imagesdocentes.s3-sa-east-1.amazonaws.com/images_noticias/{{
+              noticia.uid
+            }}.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

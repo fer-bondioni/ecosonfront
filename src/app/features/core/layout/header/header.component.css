@@ -1,0 +1,26 @@
+/* .mat-tab-group {
+    margin-bottom: 48px;
+  } */
+.navbar{
+  justify-content: space-between;
+}
+.router-link-active{
+  color: green !important ;
+}
+.navbar a:hover{
+  text-decoration:none;
+  color:lightseagreen;
+}
+
+.navright a {
+  padding-left: 1rem;
+  font-size: 1.1rem;
+  color: rgb(146, 146, 228);
+}
+
+
+#title{
+  font-size:1.2rem;
+  margin:0;
+  padding: 0;
+}
