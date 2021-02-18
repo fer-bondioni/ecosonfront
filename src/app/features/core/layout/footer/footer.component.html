@@ -1,1 +1,71 @@
-<p>footer works!</p>
+<!-- <mat-toolbar style="height: 1rem"></mat-toolbar> -->
+<mat-grid-list cols="3" rowHeight="6:1" class="navbar">
+  <!-- ecoson title -->
+  <mat-grid-tile>
+    <div id="title">
+      <a routerLink="/" routerLinkActive="router-link-active"> Ecoson</a>
+    </div>
+  </mat-grid-tile>
+
+  <!-- links -->
+  <mat-grid-tile id="links">
+    <ul>
+      <li>
+        <a routerLink="noticias/all" routerLinkActive="router-link-active"
+          >Noticias
+        </a>
+      </li>
+      <li>
+        <a
+          *ngIf="subir()"
+          routerLink="noticias/create"
+          routerLinkActive="router-link-active"
+          >Subir Noticia</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="login()"
+          routerLink="users/registro"
+          routerLinkActive="router-link-active"
+        >
+          Registrate</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="login()"
+          routerLink="users/login"
+          routerLinkActive="router-link-active"
+          Ingresa
+          a
+          tu
+          cuenta
+        >
+        </a>
+      </li>
+    </ul>
+  </mat-grid-tile>
+
+  <!-- social media -->
+
+  <mat-grid-tile id="social">
+    <ul>
+      <li>
+        <a href="#">
+          <i style="font-size: 2rem; color: #3a5a93" class="bi bi-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i style="font-size: 2rem; color: #00b0e9" class="bi bi-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i style="font-size: 2rem; color: red" class="bi bi-youtube"></i>
+        </a>
+      </li>
+    </ul>
+  </mat-grid-tile>
+</mat-grid-list>

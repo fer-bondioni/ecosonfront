@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './features/auth.guard';
+import { AuthGuard } from './features/auth/auth.guard';
 // const coreModule = () =>
 //   import('./features/core/core.module').then((m) => m.CoreModule);
 const homeModule = () =>
@@ -20,12 +20,11 @@ const pipesModule = () =>
 // docentes
 const routes: Routes = [
   { path: 'home', loadChildren: homeModule },
-  // { path: '', loadChildren: coreModule },
   { path: 'noticias', loadChildren: noticiasModule },
   { path: 'categorias', loadChildren: categoriasModule },
   { path: 'users', loadChildren: usersModule },
   { path: 'pipes', loadChildren: pipesModule },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

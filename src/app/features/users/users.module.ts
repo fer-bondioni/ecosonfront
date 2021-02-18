@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,19 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     RegistroComponent,
     PerfilComponent,
   ],
-  imports: [CommonModule, UsersRoutingModule, FormsModule, ReactiveFormsModule],
-  exports: [UsersComponent, LoginComponent, RegistroComponent, PerfilComponent],
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+  ],
+  exports: [
+    UsersComponent,
+    LoginComponent,
+    RegistroComponent,
+    PerfilComponent,
+    MatButtonModule,
+  ],
 })
 export class UsersModule {}

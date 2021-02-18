@@ -1,0 +1,37 @@
+.card .img{
+    /* height: 8rem;
+    width: 8rem; */
+    height: 100vh !important;
+    width: 120vh !important;
+    margin: 0 auto  !important;
+}
+.mat-divider{
+    border-top-width: 2px;
+    border-top-style: dashed;
+  }
+.mat-raised-button{
+    margin-top: 10px;
+}
+
+.card #ultimas{
+    margin-top: 10px;
+    display: inline-block;
+}
+.card-deck{
+    display: flex;
+    flex: 1 1; 
+}
+/* #imgcard{
+    height: 250px !important;
+    width: 250px !important;
+} */
+#title{
+    text-align: center;
+    margin:1.4rem;
+    color:indianred;
+    text-transform: capitalize;
+    border-bottom: 1px dotted black;
+}
+.card-body{
+    padding: 1.1rem !important;
+}

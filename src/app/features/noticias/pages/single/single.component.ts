@@ -17,11 +17,18 @@ export class SingleComponent implements OnInit {
     reg: '/[a-z]/g',
   };
   regexConstructor = new RegExp('cat');
+
+  ultimas: any = [];
   noticia: any = [];
   async ngOnInit() {
     const params = this.activatedRoute.snapshot.params.id;
     const noticia: any = await this.service.single(params);
     this.noticia = noticia;
     console.log(this.noticia);
+    this.loadUltimas();
+  }
+  async loadUltimas() {
+    const ultimas: any = await this.service.ultimas();
+    this.ultimas = ultimas;
   }
 }

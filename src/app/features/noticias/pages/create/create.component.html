@@ -65,25 +65,40 @@
       <mat-label>categoria</mat-label>
       <input matInput type="text" formControlName="categoria" />
     </mat-form-field> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Elige categoria</mat-label>
+      <mat-select>
+        <mat-option value="Incendios">Incendios</mat-option>
+        <mat-option value="Inundaciones">Inundaciones</mat-option>
+        <mat-option value="Contaminación">Contaminación</mat-option>
+      </mat-select>
+    </mat-form-field>
     <div>
-      <input id="file" type="file" (change)="onFileSelected($event)" />
+      <input required id="file" type="file" (change)="onFileSelected($event)" />
       <div *ngIf="image">
         <img
           [src]="previewUrl"
-          style="width: 12rem; height: auto; margin-top: 20px"
+          style="width: 15rem; height: auto; float: right"
         />
-        <button mat-button (click)="eliminar()">X</button>
+        <button
+          style="float: right; margin-right: 10px"
+          mat-raised-button
+          (click)="eliminar()"
+        >
+          X
+        </button>
       </div>
     </div>
 
     <button
       id="nueva"
-      mat-button
-      style="font-size: larger"
+      mat-raised-button
+      color="primary"
+      style="font-size: 1rem; padding: 10px"
       (click)="upload()"
       [disabled]="form.invalid"
     >
-      Nueva noticia
+      Enviar noticia
     </button>
   </form>
 </div>

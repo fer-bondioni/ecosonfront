@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../../users.service';
+import { SwalService } from '../../../../services/swal.service';
 
 @Component({
   selector: 'app-login',
@@ -23,10 +24,15 @@ export class LoginComponent implements OnInit {
     ]),
   };
 
-  constructor(private _service: UsersService, private router: Router) {}
+  constructor(
+    private _service: UsersService,
+    private service: SwalService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup(this.FormObject);
+    //this.service.normalMessage({ html: 'Holis' });
     // this.loaded = !this.loaded;
   }
 
@@ -45,6 +51,11 @@ export class LoginComponent implements OnInit {
       const { JWT, info } = result;
       localStorage.setItem('JWT', JWT);
       localStorage.setItem('user', JSON.stringify(info));
+      this.service.normalMessage({
+        html: 'Bienvenido',
+        icon: 'success',
+        timer: 2000,
+      });
       this.router.navigate(['users/perfil']);
     } catch (e) {}
   }

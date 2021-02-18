@@ -4,12 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PipesRoutingModule } from './pipes-routing.module';
 import { PipesComponent } from './pipes.component';
 
-
 @NgModule({
   declarations: [PipesComponent],
-  imports: [
-    CommonModule,
-    PipesRoutingModule
-  ]
+  imports: [CommonModule, PipesRoutingModule],
+  exports: [PipesComponent],
 })
-export class PipesModule { }
+export class PipesModule {}

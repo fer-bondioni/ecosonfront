@@ -1,1 +1,52 @@
-<p>perfil works!</p>
+<div id="title">
+  <h2>Tus Noticias</h2>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div
+      class="col-lg-4 col-md-4 col-12 mt-3 mb-3"
+      *ngFor="let noticia of noticias"
+    >
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://imagesdocentes.s3-sa-east-1.amazonaws.com/images_noticias/{{
+            noticia.uid
+          }}.png"
+          alt="Card image cap"
+        />
+        <div class="card">
+          <div class="card-body">
+            <p class="fecha">{{ noticia.fecha | date: "yyyy-MM-dd" }}</p>
+            <h5 class="card-title">{{ noticia.titulo }}</h5>
+            <p class="text-left">{{ noticia.texto | slice: 0:200 }}...</p>
+
+            <!-- <p>{{ noticia.categoria }}</p> -->
+            <a
+              class="btn btn-success btn-block text-white"
+              routerLink="/noticias/single/{{ noticia.id }}"
+              routerLinkActive="router-link-active"
+              >Leer</a
+            >
+            <a class="btn btn-success btn-block text-white" (click)="eliminar()"
+              >Eliminar</a
+            >
+            <a
+              class="btn btn-success btn-block text-white"
+              routerLink="/noticias/modify/{{ noticia.id }}"
+              >Modificar</a
+            >
+            <a
+              routerLink="/noticias/categoria/{{ noticia.categoria }}"
+              routerLinkActive="router-link-active"
+            >
+              <button mat-raised-button>
+                {{ noticia.categoria }}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

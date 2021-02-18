@@ -27,13 +27,71 @@
       </span>
     </mat-menu> -->
 
-    <a routerLink="users/login" routerLinkActive="router-link-active"
-      >Ingresa a tu cuenta</a
+    <a
+      *ngIf="subir()"
+      routerLink="noticias/create"
+      routerLinkActive="router-link-active"
+      >Subir Noticia</a
     >
-    <a routerLink="users/registro" routerLinkActive="router-link-active">
+
+    <a
+      *ngIf="login()"
+      routerLink="users/registro"
+      routerLinkActive="router-link-active"
+    >
       Registrate</a
     >
+
+    <a
+      *ngIf="login()"
+      routerLink="users/login"
+      routerLinkActive="router-link-active"
+    >
+      <button style="font-size: 1rem" color="warn" mat-raised-button>
+        Ingresa a tu cuenta
+      </button>
+    </a>
+
+    <a
+      *ngIf="perfil()"
+      routerLink="users/perfil"
+      routerLinkActive="router-link-active"
+      >Perfil</a
+    >
+
+    <a *ngIf="cerrar()">
+      <button
+        style="font-size: 1rem"
+        mat-raised-button
+        color="primary"
+        (click)="logout()"
+      >
+        Cerrar Sesión
+      </button>
+    </a>
   </div>
+</mat-toolbar>
+<mat-toolbar style="height: 1rem">
+  <!-- <div class="subnav">
+    <a
+      routerLink="noticias/categoria/incendios"
+      routerLinkActive="router-link-active"
+      >Incendios</a
+    >
+    <a
+      routerLink="noticias/categoria/contaminacion"
+      routerLinkActive="router-link-active"
+      >Contaminación</a
+    >
+
+    <a
+      routerLink="noticias/categoria/inundaciones"
+      routerLinkActive="router-link-active"
+      >Inundaciones</a
+    >
+
+    <a routerLink="noticias/all" routerLinkActive="router-link-active">Todas</a>
+  </div> -->
 </mat-toolbar>
 <!-- logout -->
 <!-- <span>Nosotros</span> -->

@@ -10,6 +10,10 @@ export class NoticiasService extends BaseService {
     this.setEndPoint(`${this.common}/all`);
     return this.get();
   }
+  ultimas() {
+    this.setEndPoint('home');
+    return this.get();
+  }
   single(id) {
     this.setEndPoint(`${this.common}/single/${id}`);
     return this.get();
@@ -23,6 +27,10 @@ export class NoticiasService extends BaseService {
   create(obj) {
     this.setEndPoint(`${this.common}/create`);
     return this.post(obj);
+  }
+  del(id, obj) {
+    this.setEndPoint(`${this.common}/eliminar/${id}`);
+    return this.put(obj);
   }
   // update(id, obj) {
   //   this.setEndpoint(`${this.common}/modify/${id}`);

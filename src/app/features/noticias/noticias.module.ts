@@ -11,6 +11,9 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { ModifyComponent } from './pages/modify/modify.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     CreateComponent,
     SingleComponent,
     CategoriaComponent,
+    ModifyComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatSelectModule,
+    MatDividerModule,
   ],
-  exports: [AllComponent, CreateComponent, NoticiasComponent, SingleComponent],
+  exports: [
+    AllComponent,
+    CreateComponent,
+    NoticiasComponent,
+    SingleComponent,
+    ModifyComponent,
+  ],
 })
 export class NoticiasModule {}

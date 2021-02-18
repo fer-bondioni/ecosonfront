@@ -7,17 +7,34 @@
       class="col-lg-4 col-md-4 col-12 mt-3 mb-3"
       *ngFor="let ultima of ultimas"
     >
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">{{ ultima.titulo }}</h5>
-          <p>{{ ultima.texto }}</p>
-          <p>{{ ultima.categoria }}</p>
-          <a
-            class="btn btn-primary btn-block text-white"
-            routerLink="/noticias/single/{{ ultima.id }}"
-            routerLinkActive="router-link-active"
-            >Ver más!</a
-          >
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://imagesdocentes.s3-sa-east-1.amazonaws.com/images_noticias/{{
+            ultima.uid
+          }}.png"
+          alt="Card image cap"
+        />
+        <div class="card">
+          <div class="card-body">
+            <p class="fecha">{{ ultima.fecha | date: "yyyy-MM-dd" }}</p>
+            <h4 class="card-title text-left">{{ ultima.titulo }}</h4>
+            <p class="text-left">{{ ultima.texto | slice: 0:200 }} ...</p>
+            <a
+              class="btn btn-success btn-block text-white"
+              routerLink="/noticias/single/{{ ultima.id }}"
+              routerLinkActive="router-link-active"
+              >Leer</a
+            >
+            <a
+              routerLink="/noticias/categoria/{{ ultima.categoria }}"
+              routerLinkActive="router-link-active"
+            >
+              <button mat-raised-button>
+                {{ ultima.categoria }}
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>

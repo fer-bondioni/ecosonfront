@@ -3,6 +3,7 @@
   } */
 .navbar{
   justify-content: space-between;
+  box-shadow: 1px 1px 8px black;
 }
 .router-link-active{
   color: green !important ;
@@ -16,8 +17,19 @@
   padding-left: 1rem;
   font-size: 1.1rem;
   color: rgb(146, 146, 228);
+  border-right: dotted 1px rgb(146, 146, 228);
+  padding-right:15px;
 }
-
+.subnav{
+  display: flex;
+  justify-content: flex-end;  
+  height: auto;
+  float:right;
+}
+.subnav a{
+  padding-left:1rem;
+  font-size: 1rem;
+}
 
 #title{
   font-size:1.2rem;

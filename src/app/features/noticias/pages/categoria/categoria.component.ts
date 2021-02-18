@@ -12,11 +12,7 @@ export class CategoriaComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private service: NoticiasService
   ) {}
-  alfinal = {
-    url: 'https://imagesdocentes.s3-sa-east-1.amazonaws.com/images_noticias/',
-    reg: '/[a-z]/g',
-  };
-  regexConstructor = new RegExp('cat');
+
   noticia: any = [];
   async ngOnInit() {
     const params = this.activatedRoute.snapshot.params.categoria;

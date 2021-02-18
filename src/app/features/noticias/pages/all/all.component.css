@@ -1,0 +1,10 @@
+.mat-raised-button a:hover{
+    text-decoration:none;
+}
+.mat-raised-button{
+    margin:10px 0 0 0;
+    font-size: 0.7rem;
+}
+.fecha{
+    font-size: .8rem;
+}

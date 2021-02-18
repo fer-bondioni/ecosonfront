@@ -4,31 +4,34 @@ import { NoticiasService } from '../../noticias.service';
 import { Router } from '@angular/router';
 import { SwalService } from '../../../../services/swal.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/features/users/users.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  selector: 'app-modify',
+  templateUrl: './modify.component.html',
+  styleUrls: ['./modify.component.css'],
 })
-export class CreateComponent implements OnInit {
+export class ModifyComponent implements OnInit {
   constructor(
     private service: NoticiasService,
     private activatedRoute: ActivatedRoute,
     private service2: SwalService,
+    private service3: UsersService,
     private router: Router
   ) {}
-
-  noticias: any = [];
+  noticia: any = [];
   loaded: boolean = false;
   image: boolean = false;
   form: FormGroup;
   selectedFile: File; // req.files
   previewUrl: any;
+  params: any = this.activatedRoute.snapshot.params.id;
 
   FormObject: any = {
     titulo: new FormControl('', [Validators.required]),
-    texto: new FormControl('', [Validators.required]),
-    //idCategoria: new FormControl(),
+    texto: new FormControl(),
+    // idCategoria: new FormControl(),
+    // idUsuario: new FormControl(),
   };
 
   createForm(): void {
@@ -58,31 +61,28 @@ export class CreateComponent implements OnInit {
   async upload() {
     const { titulo, texto, idCategoria } = this.form.value;
     const fd = new FormData(); // key,value
-    // this.service.create(this.form.value) // mandar el form en texto plano
     fd.append('titulo', titulo);
     fd.append('texto', texto);
     //fd.append('categoria', idCategoria);
     fd.append('imagen', this.selectedFile, this.selectedFile.name); // {mimetype, name, size, }
     const result = await this.service.create(fd);
     this.service2.normalMessage({
-      html: 'Noticia creada',
+      html: 'Noticia modificada',
       icon: 'success',
       timer: 1500,
     });
     this.router.navigate(['users/perfil']);
-
-    //const result = await this.service.create(fd);
-    // result contiene la respuesta del server -> id : 4
-    //return fd;
   }
 
-  async loadNoticias() {
-    const noticias: any = await this.service.all();
-    this.noticias = noticias;
+  async update() {
+    const obj: any = await this.service3.update(this.params, this.form);
+    this.router.navigate(['perfil']);
   }
 
   async ngOnInit() {
+    const params = this.activatedRoute.snapshot.params.id;
+    const noticia: any = await this.service.single(params);
+    this.noticia = noticia;
     this.createForm();
-    await this.loadNoticias();
   }
 }

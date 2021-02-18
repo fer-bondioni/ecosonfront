@@ -1,0 +1,53 @@
+.navbar{
+    background-color: DarkSeaGreen;
+    box-shadow: 1px -1px 8px black;
+    margin-top: 2rem;
+}
+.navbar ul{
+    list-style: none;
+}
+#title{
+    margin:0 340px 26px 0;
+    font-size:1.2rem;
+}
+#title a{
+    color: green!important;
+    text-decoration:none;
+}
+#title a:hover{
+    border-bottom: green 2px dotted;
+}
+
+
+#links ul li{
+    /* display:inline-block; */
+    padding-right: 10px;
+}
+#links ul li a{
+    text-decoration:none;
+    color:FireBrick;
+    text-align:center;
+}
+#links ul li a:hover{
+    border-bottom: green 1px dotted;
+    opacity: 0.5;
+}
+#social ul li{
+    width: 33.25%;
+    float: left;
+}
+
+#social ul li a{
+    text-decoration: none;
+    text-align: center;
+    padding: 0.4em 0.4em;
+    transition: all 0.1s ease;
+}
+#social ul li a:hover{
+    /* border-top:2px solid black; */
+    opacity: 0.5;
+}
+.mat-grid-list{
+    bottom:0px;
+    position:relative;
+}

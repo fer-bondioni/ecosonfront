@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '../auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 import { AllComponent } from './pages/all/all.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { CreateComponent } from './pages/create/create.component';
 import { SingleComponent } from './pages/single/single.component';
+import { ModifyComponent } from './pages/modify/modify.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
         component: AllComponent,
       },
       {
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard],
         path: 'create',
         component: CreateComponent,
       },
@@ -26,6 +27,11 @@ const routes: Routes = [
       {
         path: 'categoria/:categoria',
         component: CategoriaComponent,
+      },
+      {
+        canActivate: [AuthGuard],
+        path: 'modify/:id',
+        component: ModifyComponent,
       },
     ],
   },

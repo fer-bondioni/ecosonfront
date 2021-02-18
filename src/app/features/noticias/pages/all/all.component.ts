@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from '../../noticias.service';
+
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',
@@ -8,6 +9,7 @@ import { NoticiasService } from '../../noticias.service';
 export class AllComponent implements OnInit {
   loaded: boolean = false;
   noticias: Array<Object> = [];
+
   constructor(private _service: NoticiasService) {}
 
   async ngOnInit() {

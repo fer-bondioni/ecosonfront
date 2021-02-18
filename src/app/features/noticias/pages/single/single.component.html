@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row justify-content-center align-items-center">
     <div class="col-md-3 col-lg-3 col-12 mt-5">
       <div class="card" style="width: 18rem">
@@ -19,4 +19,53 @@
       </div>
     </div>
   </div>
+</div> -->
+<div class="card">
+  <img
+    class="img"
+    src="https://imagesdocentes.s3-sa-east-1.amazonaws.com/images_noticias/{{
+      noticia.uid
+    }}.png"
+    alt="Card image"
+  />
+  <mat-divider></mat-divider>
+  <div class="card-body">
+    <p>{{ noticia.fecha | date: "yyyy-MM-dd" }}</p>
+    <h3 class="card-title">{{ noticia.titulo }}</h3>
+    <p class="card-text">
+      {{ noticia.texto }}
+    </p>
+    <p class="card-text">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </p>
+  </div>
+</div>
+
+<!-- ultimas noticias -->
+
+<div id="title">
+  <h3>últimas Noticias</h3>
+</div>
+
+<div class="card-deck">
+  <div id="imgcard" class="card" *ngFor="let ultima of ultimas">
+    <div class="card-body">
+      <h5 class="card-title">{{ ultima.titulo }}</h5>
+      <p style="font-size: small">{{ ultima.texto | slice: 0:300 }} ...</p>
+    </div>
+    <a
+      routerLink="/noticias/single/{{ ultima.id }}"
+      routerLinkActive="router-link-active"
+    >
+      <button mat-raised-button color="accent">Leer</button>
+    </a>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
+
+<!-- go back -->
+<div>
+  <button mat-raised-button onclick="goBack()">Regresar</button>
 </div>

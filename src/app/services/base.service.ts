@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SwalService } from '../services/swal.service';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,7 +12,11 @@ export class BaseService {
   // get , post, headers
   // location.href = "/"
   endpoint = '';
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private service: SwalService,
+    private router: Router
+  ) {}
   //me falta esta parte
   setEndPoint(endpoint: string) {
     this.endpoint = endpoint;
@@ -53,19 +59,27 @@ export class BaseService {
       return await this.http
         .put(`${this.urlServer}/${this.endpoint}`, obj, this.getHttpOptions())
         .toPromise();
-    } catch (error) {}
+    } catch (e) {
+      this.handlerError(e);
+    }
   }
   async delete(obj) {
     try {
       return await this.http
         .put(`${this.urlServer}/${this.endpoint}`, obj, this.getHttpOptions())
         .toPromise();
-    } catch (error) {}
+    } catch (e) {
+      this.handlerError(e);
+    }
   }
 
   handlerError(e) {
-    // this.Swal.normalMessage({html:'No tenés permiso', icon: 'error' , timer: 2000});
-    e.status === 401 ? this.router.navigate(['login']) : null;
+    this.service.normalMessage({
+      html: 'No tenés permiso',
+      icon: 'error',
+      timer: 2000,
+    });
+    e.status === 401 ? this.router.navigate(['users/login']) : null;
     e.status === 404 ? this.router.navigate(['notfound']) : null;
   }
 }
