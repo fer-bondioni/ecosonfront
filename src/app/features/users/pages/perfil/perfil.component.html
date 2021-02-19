@@ -28,13 +28,16 @@
               routerLinkActive="router-link-active"
               >Leer</a
             >
-            <a class="btn btn-success btn-block text-white" (click)="eliminar()"
-              >Eliminar</a
-            >
             <a
               class="btn btn-success btn-block text-white"
               routerLink="/noticias/modify/{{ noticia.id }}"
               >Modificar</a
+            >
+            <a
+              routerLink="/noticias/eliminar/{{ noticia.id }}"
+              class="btn btn-danger btn-block text-white"
+              (click)="eliminar()"
+              >Eliminar</a
             >
             <a
               routerLink="/noticias/categoria/{{ noticia.categoria }}"

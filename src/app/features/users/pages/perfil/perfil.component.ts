@@ -30,7 +30,6 @@ export class PerfilComponent implements OnInit {
     //const noticias: any = await this.service.single(params);
     const noticias: any = await this.service.all();
     //this.noticia = noticia;
-    //this.noticia = noticia;
     this.id = noticias.id;
     const obj: any = this.service.del(this.id, {});
     //console.log(obj);
